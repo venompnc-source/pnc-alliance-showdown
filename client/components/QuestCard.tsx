@@ -1,8 +1,24 @@
+import * as React from "react";
 import { Quest } from "@shared/api";
 import { 
-  Trophy, ShoppingCart, Users, Zap, Diamond, Flame, 
-  Pickaxe, Shield, User, Heart, HandHelping, Hammer, 
-  FlaskConical, Sword, Compass, Timer, Truck, Package,
+  Trophy, 
+  ShoppingCart, 
+  Users, 
+  Zap, 
+  Diamond, 
+  Flame, 
+  Pickaxe, 
+  Shield, 
+  User, 
+  Heart, 
+  HandHelping, 
+  Hammer, 
+  FlaskConical, 
+  Sword, 
+  Compass, 
+  Clock, 
+  Truck, 
+  Package,
   HelpCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,7 +39,7 @@ const typeIcons: Record<string, any> = {
   research: FlaskConical,
   troop: Sword,
   rally: Compass,
-  speedup: Timer,
+  speedup: Clock,
   transport: Truck,
   packs: Package,
 };
@@ -34,7 +50,6 @@ interface QuestCardProps {
 
 export function QuestCard({ quest }: QuestCardProps) {
   const Icon = typeIcons[quest.type] || HelpCircle;
-  
   const isHighValue = quest.points >= 240;
 
   return (
@@ -42,7 +57,6 @@ export function QuestCard({ quest }: QuestCardProps) {
       "group relative overflow-hidden rounded-xl border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10",
       isHighValue ? "border-primary/50 bg-gradient-to-br from-card to-primary/5" : "border-border"
     )}>
-      {/* Background Glow */}
       <div className={cn(
         "absolute -right-4 -top-4 h-24 w-24 rounded-full blur-3xl transition-opacity group-hover:opacity-100",
         isHighValue ? "bg-primary/20 opacity-50" : "bg-blue-500/10 opacity-0"
@@ -61,7 +75,7 @@ export function QuestCard({ quest }: QuestCardProps) {
               {quest.points} Points
             </span>
             <span className="mt-1 flex items-center gap-1 text-[10px] text-muted-foreground">
-              <Timer className="h-3 w-3" />
+              <Clock className="h-3 w-3" />
               {quest.time || "— No time limit"}
             </span>
           </div>

@@ -27,3 +27,7 @@ export type QuestType =
   | "transport"
   | "packs"
   | "other";
+
+export interface DemoResponse {
+  message: string;
+}
