@@ -46,17 +46,21 @@ const typeIcons: Record<string, any> = {
 
 interface QuestCardProps {
   quest: Quest;
+  onClick: (quest: Quest) => void;
 }
 
-export function QuestCard({ quest }: QuestCardProps) {
+export function QuestCard({ quest, onClick }: QuestCardProps) {
   const Icon = typeIcons[quest.type] || HelpCircle;
   const isHighValue = quest.points >= 240;
 
   return (
-    <div className={cn(
-      "group relative overflow-hidden rounded-xl border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10",
-      isHighValue ? "border-primary/50 bg-gradient-to-br from-card to-primary/5" : "border-border"
-    )}>
+    <div
+      onClick={() => onClick(quest)}
+      className={cn(
+        "group cursor-pointer relative overflow-hidden rounded-xl border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10",
+        isHighValue ? "border-primary/50 bg-gradient-to-br from-card to-primary/5" : "border-border"
+      )}
+    >
       <div className={cn(
         "absolute -right-4 -top-4 h-24 w-24 rounded-full blur-3xl transition-opacity group-hover:opacity-100",
         isHighValue ? "bg-primary/20 opacity-50" : "bg-blue-500/10 opacity-0"

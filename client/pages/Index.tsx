@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import { quests as initialQuests } from "@/data/quests";
 import { QuestCard } from "@/components/QuestCard";
 import { QuestFilters } from "@/components/QuestFilters";
+import { QuestModal } from "@/components/QuestModal";
 import { Quest, QuestType } from "@shared/api";
 import { Trophy, LayoutGrid, ListFilter, LayoutDashboard, Search } from "lucide-react";
 
@@ -11,6 +12,7 @@ export default function Index() {
   const [selectedType, setSelectedType] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("points");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+  const [selectedQuest, setSelectedQuest] = useState<Quest | null>(null);
 
   const filteredAndSortedQuests = useMemo(() => {
     return initialQuests
@@ -125,7 +127,11 @@ export default function Index() {
         {filteredAndSortedQuests.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredAndSortedQuests.map((quest) => (
-              <QuestCard key={quest.id} quest={quest} />
+              <QuestCard
+                key={quest.id}
+                quest={quest}
+                onClick={setSelectedQuest}
+              />
             ))}
           </div>
         ) : (
@@ -138,6 +144,12 @@ export default function Index() {
           </div>
         )}
       </main>
+
+      <QuestModal
+        quest={selectedQuest}
+        isOpen={!!selectedQuest}
+        onClose={() => setSelectedQuest(null)}
+      />
 
       {/* Footer / Mobile Nav */}
       <footer className="mt-20 border-t border-border/40 py-10 bg-secondary/20">

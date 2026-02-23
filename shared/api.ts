@@ -5,6 +5,7 @@ export interface Quest {
   points: number;
   time: string | null;
   type: QuestType;
+  note?: string;
 }
 
 export type QuestType =
