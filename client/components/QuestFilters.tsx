@@ -1,3 +1,4 @@
+import * as React from "react";
 import { QuestType } from "@shared/api";
 import { Search, Filter, SortDesc, SortAsc } from "lucide-react";
 import { 
@@ -47,7 +48,7 @@ export function QuestFilters({
             </SelectTrigger>
             <SelectContent align="end" className="bg-card border-border">
               <SelectItem value="all">All Types</SelectItem>
-              {types.sort().map((type) => (
+              {[...types].sort().map((type) => (
                 <SelectItem key={type} value={type} className="capitalize">{type}</SelectItem>
               ))}
             </SelectContent>

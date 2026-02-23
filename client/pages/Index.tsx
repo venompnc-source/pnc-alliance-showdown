@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useState, useMemo } from "react";
 import { quests as initialQuests } from "@/data/quests";
 import { QuestCard } from "@/components/QuestCard";
