@@ -101,10 +101,10 @@ export function QuestModal({ quest, isOpen, onClose }: QuestModalProps) {
           <div className="rounded-xl bg-primary/5 border border-primary/20 p-4">
             <div className="flex items-center gap-2 mb-2 text-primary">
               <Info className="h-4 w-4" />
-              <span className="text-[10px] font-bold uppercase tracking-wider">Strategist's Note</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider">Helpful Tip</span>
             </div>
             <p className="text-sm leading-relaxed text-foreground/90 italic">
-              {quest.note || "No specific notes available for this quest. Focus on completing the requirements efficiently to maximize point gain."}
+              {quest.note || "No specific tips available for this quest. Focus on completing the requirements efficiently to maximize point gain."}
             </p>
           </div>
         </div>
