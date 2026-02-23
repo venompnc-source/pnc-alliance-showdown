@@ -70,19 +70,8 @@ export default function Index() {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center gap-6">
-            <nav className="flex items-center gap-4 text-sm font-medium">
-              <a href="#" className="flex items-center gap-2 text-primary transition-colors">
-                <LayoutDashboard className="h-4 w-4" />
-                Dashboard
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Planner</a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Stats</a>
-            </nav>
-            <div className="h-4 w-px bg-border" />
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary ring-2 ring-white/10">
-              <span className="text-[10px] font-bold">JD</span>
-            </div>
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary ring-2 ring-white/10">
+            <span className="text-[10px] font-bold text-primary">JD</span>
           </div>
         </div>
       </header>
