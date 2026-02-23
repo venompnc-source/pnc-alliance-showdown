@@ -8,7 +8,7 @@ import { Trophy, LayoutGrid, ListFilter, LayoutDashboard, Search } from "lucide-
 
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedType, setSelectedType] = useState<QuestType | "all">("all");
+  const [selectedType, setSelectedType] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("points");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
@@ -16,7 +16,18 @@ export default function Index() {
     return initialQuests
       .filter((quest) => {
         const matchesSearch = quest.quest.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesType = selectedType === "all" || quest.type === selectedType;
+
+        let matchesType = false;
+        if (selectedType === "all") {
+          matchesType = true;
+        } else if (selectedType === "personal") {
+          matchesType = quest.points >= 240;
+        } else {
+          // Specific type: only show if it matches type AND is not a personal quest (240 pts)
+          // This "puts them under" the personal filter instead.
+          matchesType = quest.type === selectedType && quest.points < 240;
+        }
+
         return matchesSearch && matchesType;
       })
       .sort((a, b) => {
@@ -38,7 +49,8 @@ export default function Index() {
   }, [searchQuery, selectedType, sortBy, sortOrder]);
 
   const uniqueTypes = useMemo(() => {
-    return Array.from(new Set(initialQuests.map((q) => q.type)));
+    // Only show types that have at least one non-personal (240 pts) quest
+    return Array.from(new Set(initialQuests.filter(q => q.points < 240).map((q) => q.type)));
   }, []);
 
   return (

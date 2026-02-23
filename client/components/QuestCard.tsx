@@ -35,7 +35,7 @@ interface QuestCardProps {
 export function QuestCard({ quest }: QuestCardProps) {
   const Icon = typeIcons[quest.type] || HelpCircle;
   
-  const isHighValue = quest.points >= 200;
+  const isHighValue = quest.points >= 240;
 
   return (
     <div className={cn(

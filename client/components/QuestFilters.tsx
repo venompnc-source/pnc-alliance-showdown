@@ -46,8 +46,9 @@ export function QuestFilters({
             <SelectTrigger className="w-[140px] border-none bg-transparent focus:ring-0 focus:ring-offset-0 h-8 text-xs font-semibold uppercase tracking-wider">
               <SelectValue placeholder="All Types" />
             </SelectTrigger>
-            <SelectContent align="end" className="bg-card border-border">
+            <SelectContent align="end" className="bg-card border-border max-h-[300px]">
               <SelectItem value="all">All Types</SelectItem>
+              <SelectItem value="personal" className="font-bold text-primary">Personal (240)</SelectItem>
               {[...types].sort().map((type) => (
                 <SelectItem key={type} value={type} className="capitalize">{type}</SelectItem>
               ))}
@@ -61,7 +62,7 @@ export function QuestFilters({
             <SelectTrigger className="w-[140px] border-none bg-transparent focus:ring-0 focus:ring-offset-0 h-8 text-xs font-semibold uppercase tracking-wider">
               <SelectValue placeholder="Sort By" />
             </SelectTrigger>
-            <SelectContent align="end" className="bg-card border-border">
+            <SelectContent align="end" className="bg-card border-border max-h-[300px]">
               <SelectItem value="quest">Quest Name</SelectItem>
               <SelectItem value="type">Quest Type</SelectItem>
               <SelectItem value="points">Points</SelectItem>
