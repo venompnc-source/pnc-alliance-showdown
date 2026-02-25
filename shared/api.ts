@@ -6,6 +6,7 @@ export interface Quest {
   time: string | null;
   type: QuestType;
   note?: string;
+  recommendation?: "recommended" | "not_recommended" | "neutral";
 }
 
 export type QuestType =
