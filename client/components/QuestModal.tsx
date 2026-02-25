@@ -38,7 +38,10 @@ export function QuestModal({ quest, isOpen, onClose }: QuestModalProps) {
           isHighValue ? "bg-primary" : cn(questColors.bg.replace("bg-", "").replace("/10", ""), "bg-current opacity-30")
         )} style={{ backgroundColor: !isHighValue ? questColors.text.replace("text-", "") : undefined }} />
 
-        <DialogHeader className="px-6 pt-8 pb-4 text-left sm:text-left">
+        <DialogTitle className="sr-only">
+          {t.questNames[quest.quest] || quest.quest}
+        </DialogTitle>
+        <div className="px-6 pt-8 pb-4 text-left sm:text-left">
           <div className="flex items-center gap-4 mb-2">
             <div className={cn(
               "flex h-14 w-14 items-center justify-center rounded-2xl ring-1 ring-inset ring-white/10 shadow-lg",
@@ -55,7 +58,7 @@ export function QuestModal({ quest, isOpen, onClose }: QuestModalProps) {
               </span>
             </div>
           </div>
-        </DialogHeader>
+        </div>
 
         <div className="px-6 py-4 space-y-6">
           <div className="grid grid-cols-2 gap-4">
