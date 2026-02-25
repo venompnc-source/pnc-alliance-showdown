@@ -107,7 +107,8 @@ export const quests: Quest[] = rawQuests.map(q => {
     q.type === "help" ||
     q.type === "market" ||
     q.type === "rally" ||
-    q.type === "speedup"
+    q.type === "speedup" ||
+    (q.quest === "Research" && (q.requirement === 4 || q.requirement === 6 || q.requirement === 8))
   ) {
     recommendation = "recommended";
   }
