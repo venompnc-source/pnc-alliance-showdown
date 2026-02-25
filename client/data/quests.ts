@@ -24,7 +24,7 @@ const rawQuests: Quest[] = [
   { id: "21", quest: "Consume Stamina", requirement: 375, points: 118, time: null, type: "stamina" },
   { id: "22", quest: "Consume Stamina", requirement: 625, points: 104, time: null, type: "stamina" },
   { id: "23", quest: "Consume Stamina", requirement: 1000, points: 136, time: null, type: "stamina" },
-  { id: "24", quest: "Gather Food", requirement: "1,200,000", points: 67, time: null, type: "gather", note: "Send troops to high-level food resource tiles for faster gathering. Gathering speed boosts are highly recommended." },
+  { id: "24", quest: "Gather Food", requirement: "1,200,000", points: 67, time: null, type: "gather" },
   { id: "25", quest: "Gather Food", requirement: "2,400,000", points: 82, time: null, type: "gather" },
   { id: "26", quest: "Gather Food", requirement: "4,800,000", points: 113, time: null, type: "gather" },
   { id: "27", quest: "Gather Food", requirement: "7,200,000", points: 143, time: "3 days", type: "gather" },
@@ -96,7 +96,8 @@ export const quests: Quest[] = rawQuests.map(q => {
     (q.type === "research" && q.quest.includes("Improve Research Power")) ||
     q.type === "building" ||
     q.type === "transport" ||
-    q.type === "stamina"
+    q.type === "stamina" ||
+    q.type === "troop"
   ) {
     recommendation = "not_recommended";
   }
@@ -107,7 +108,8 @@ export const quests: Quest[] = rawQuests.map(q => {
     q.type === "help" ||
     q.type === "market" ||
     q.type === "rally" ||
-    q.type === "speedup"
+    q.type === "speedup" ||
+    (q.quest === "Research" && (q.requirement === 4 || q.requirement === 6 || q.requirement === 8))
   ) {
     recommendation = "recommended";
   }
