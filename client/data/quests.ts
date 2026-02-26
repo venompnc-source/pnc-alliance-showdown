@@ -82,7 +82,7 @@ const rawQuests: Quest[] = [
   { id: "79", quest: "Buy Packs", requirement: 15, points: 240, time: null, type: "packs", note: "High-value quest. This is a personal quest that requires actual purchases in the game store." },
   { id: "80", quest: "Consume Diamond", requirement: "200,000", points: 240, time: null, type: "diamond", note: "Perfect for large upgrades or during diamond spending events." },
   { id: "81", quest: "Gain Diamonds via Packs", requirement: "18,000", points: 240, time: null, type: "packs" },
-  { id: "82", quest: "Get Hero Shard", requirement: "1,000,000", points: 240, time: null, type: "hero" },
+  { id: "82", quest: "Get Hero Shard", requirement: "1,000,000", points: 240, time: "4 days", type: "hero" },
   { id: "83", quest: "Improve Research Power", requirement: "1,100,000", points: 240, time: null, type: "research" },
   { id: "84", quest: "Improve Troop Power", requirement: "3,250,000", points: 240, time: null, type: "troop", note: "One of the most efficient high-point quests. Save your troop training speedups for this specific quest." },
   { id: "85", quest: "Speedup (Build/Tech/Training/Healing)", requirement: "480h", points: 240, time: null, type: "speedup" },
