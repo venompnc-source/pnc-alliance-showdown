@@ -23,15 +23,15 @@ export default function Index() {
   const infoSlides = [
     {
       image: "https://cdn.builder.io/api/v1/image/assets%2F78a4578f1a9f4db28a3a47d12e310816%2Fdc3205fee48248a0a293c16f7d89f7a0?format=webp&width=800&height=1200",
-      text: "This is how the quests board looks for everyone (minus signs aren't visible). New quests appear every 30 minutes when refreshed, but bad quests get refreshed almost instantly, so please be patient."
+      text: t.info.slides.slide1
     },
     {
       image: "https://cdn.builder.io/api/v1/image/assets%2F78a4578f1a9f4db28a3a47d12e310816%2F5bda135d420f4e90b4349c226202256e?format=webp&width=800&height=1200",
-      text: "These are personal quests, only available to you. If you don't like them, you get a chance to refresh them every 10 minutes."
+      text: t.info.slides.slide2
     },
     {
       image: "https://cdn.builder.io/api/v1/image/assets%2F78a4578f1a9f4db28a3a47d12e310816%2F7970088904ca40ddb6da5229c60558ed?format=webp&width=800&height=1200",
-      text: "Avoid quests with a \"?\" sign. Like bad quests, they get refreshed almost instantly, so there's no need to attempt them."
+      text: t.info.slides.slide3
     },
   ];
 
@@ -95,7 +95,8 @@ export default function Index() {
             <button
               onClick={() => setIsInfoOpen(true)}
               className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary ring-2 ring-white/10 hover:ring-primary/30 transition-all hover:bg-secondary/80"
-              aria-label="Open information"
+              aria-label={t.info.button}
+              title={t.info.button}
             >
               <Info className="h-4 w-4 text-muted-foreground hover:text-primary" />
             </button>
