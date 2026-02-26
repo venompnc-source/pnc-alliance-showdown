@@ -66,7 +66,7 @@ const rawQuests: Quest[] = [
   { id: "63", quest: "Improve Troop Power", requirement: "600,000", points: 80, time: null, type: "troop" },
   { id: "64", quest: "Improve Troop Power", requirement: "1,200,000", points: 113, time: null, type: "troop" },
   { id: "65", quest: "Improve Troop Power", requirement: "2,400,000", points: 176, time: null, type: "troop" },
-  { id: "66", quest: "Rally on Monster Dens", requirement: 1, points: 76, time: null, type: "rally" },
+  { id: "66", quest: "Rally on Monster Dens", requirement: 1, points: 76, time: "12 hours", type: "rally" },
   { id: "67", quest: "Rally on Monster Dens", requirement: 2, points: 97, time: null, type: "rally" },
   { id: "68", quest: "Rally on Monster Dens", requirement: 4, points: 140, time: null, type: "rally" },
   { id: "69", quest: "Rally on Monster Dens", requirement: 6, points: 184, time: null, type: "rally" },
