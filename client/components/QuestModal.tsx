@@ -50,6 +50,9 @@ export function QuestModal({ quest, isOpen, onClose }: QuestModalProps) {
               <Icon className="h-7 w-7" />
             </div>
             <div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-1">
+                {t.questNames[quest.quest] || quest.quest}
+              </h2>
               <span className={cn(
                 "text-xs font-black uppercase tracking-widest",
                 isHighValue ? "text-primary" : questColors.text
